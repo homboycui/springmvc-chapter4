@@ -44,7 +44,7 @@ public class DataBinderTestController extends AbstractCommandController {
 		binder.registerCustomEditor(Date.class, dateEditor);
 		
 		//自定义的电话号码编辑器
-		binder.registerCustomEditor(PhoneNumberModel.class, new PhoneNumberEditor());
+//		binder.registerCustomEditor(PhoneNumberModel.class, new PhoneNumberEditor());	//注释本行，使用全局级别注册 PropertyEditor（全局共享）。
 	}
 	
 }

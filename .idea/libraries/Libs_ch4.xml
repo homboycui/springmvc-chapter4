@@ -29,6 +29,8 @@
       <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/slf4j-log4j12-1.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/org.springframework.context-3.1.1.RELEASE.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -186,9 +186,10 @@
 
     <!-- 注册WebBindingInitializer实现 -->
 	<bean id="myWebBindingInitializer" class="cn.javass.chapter4.web.controller.support.initializer.MyWebBindingInitializer"/>
+
     <bean name="/dataBind" class="cn.javass.chapter4.web.controller.DataBinderTestController">
-        <!-- 注入WebBindingInitializer实现 -->
-        <!-- <property name="webBindingInitializer" ref="myWebBindingInitializer"/> -->
+        <!-- 修改【三、示例】中的 DataBinderTestController，注释掉 initBinder 方法. 注入WebBindingInitializer实现 -->
+         <!--<property name="webBindingInitializer" ref="myWebBindingInitializer"/>-->
     </bean>
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

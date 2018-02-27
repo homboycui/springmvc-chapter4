@@ -6,5 +6,12 @@
     bool:<form:input path="bool"/><br/>
     phoneNumber:<form:input path="phoneNumber"/><br/>
     date:<form:input path="date"/><br/>
+    username:<form:input path="username"/><br/>
+    state:
+    <form:select  path="state">
+        <form:option value="NONE"> --SELECT--</form:option>
+        <form:options items="${state00}"></form:options>
+    </form:select>
+
     <input type="submit" value="提交"/>
 </form:form>

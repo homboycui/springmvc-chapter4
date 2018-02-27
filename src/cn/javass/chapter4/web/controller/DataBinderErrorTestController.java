@@ -2,11 +2,15 @@ package cn.javass.chapter4.web.controller;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.javass.chapter4.model.UserState;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -30,9 +34,17 @@ public class DataBinderErrorTestController extends SimpleFormController {
 		System.out.println(errors);
 		return super.showForm(request, response, errors);
 	}
-	
+
+	//提供展示表单时需要的一些其他数据
+	protected Map referenceData(HttpServletRequest request) throws Exception {
+		Map map = new HashMap();
+		map.put("state00", Arrays.asList(UserState.normal, UserState.blocked));
+		return map;
+	}
+
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
+		System.out.println("-------------");
 		System.out.println(command);//表单提交成功（数据绑定成功）进行功能处理
 	}
 
@@ -43,6 +55,7 @@ public class DataBinderErrorTestController extends SimpleFormController {
 		//1、日期
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		CustomDateEditor dateEditor = new CustomDateEditor(df, true);
+
 		//表示如果命令对象有Date类型的属性，将使用该属性编辑器进行类型转换
 		binder.registerCustomEditor(Date.class, dateEditor);
 		
